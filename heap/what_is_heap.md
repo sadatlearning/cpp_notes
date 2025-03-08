@@ -84,10 +84,11 @@ int main() {
 ✅ **Heap memory grows upwards**, unlike the stack which grows downwards.  
 ✅ You must **manually free heap memory**; otherwise, it leads to **memory leaks**.  
 
-Check out -> deeper look at system calls like `sbrk()`? 🚀
+- Check out -> deeper look at system calls like `sbrk()`? 🚀
+
 ---
 
-## The **`sbrk()` system call**
+## The **`sbrk()`** system call
 
 - Let's dive deeper into how the heap is allocated in C using the **`sbrk()` system call**.
 
