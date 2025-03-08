@@ -4,7 +4,8 @@
 - It is separate from other memory regions like the **stack, code, and data sections**.
 
 ### **Where is the Heap Located?**
-- When a C program runs, the operating system provides it with a structured memory layout. This layout typically includes:
+- When a C program runs, the operating system provides it with a structured memory layout.
+- This layout typically includes:
 
 1. **Text (Code) Segment** → Stores compiled program instructions.  
 2. **Data Segment**  
@@ -13,7 +14,8 @@
 3. **Heap** → **Grows upward (towards higher memory addresses) when memory is allocated dynamically.**  
 4. **Stack** → **Grows downward (towards lower memory addresses) when functions call each other and store local variables.**  
 
-📌 The **heap is allocated from a section of RAM managed by the OS**. When you use `malloc()` or `calloc()`, the C runtime library requests memory from the OS, which usually extends the heap using system calls like `sbrk()` or `mmap()`.
+📌 The **heap is allocated from a section of RAM managed by the OS**. When you use `malloc()` or `calloc()`, the C runtime library requests memory from the OS, 
+which usually extends the heap using system calls like `sbrk()` or `mmap()`.
 
 ### **Heap in Action**
 Let’s visualize the memory layout of a running C program:
