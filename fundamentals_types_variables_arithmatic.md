@@ -121,13 +121,10 @@ This Markdown is:
 - **Formatted for clarity** with tables/code blocks
 - **Covers modern C++** (C++11/14 features included)
 - **Highlighted common mistakes**
-
+```
 ---
 
-Here’s an expanded **Practice Problems** section with solutions in Markdown format:
-
-```markdown
----
+**Practice Problems** section with solutions in Markdown format:
 
 ## 6. Practice Problems
 
