@@ -665,5 +665,3 @@ int main() {
 🔹 **List iterators store a pointer to a node and must traverse (`O(n)`).**  
 🔹 **List iterators are bidirectional, but not random access.**  
 🔹 **Lists never invalidate iterators, while vectors do.**  
-
-Would you like a **deep dive into how linked lists are implemented in C++?** 🚀
