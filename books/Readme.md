@@ -10,8 +10,6 @@
 3. **📕 "Beginning C++20: From Novice to Professional"** – *Ivor Horton, Peter Van Weert*  
    - Updated for **C++20**, good for self-learners.  
 
-4. **📕 "test"** – *Ivor Horton, Peter Van Weert*  
-   - Updated for **C++20**, good for self-learners.  
 
 ---
 
