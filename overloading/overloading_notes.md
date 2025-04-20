@@ -267,9 +267,8 @@ I can show:
 ### Explore next?
 
 ---
-Awesome — let's explore each of these **advanced overload resolution topics** step by step with hands-on examples and detailed reasoning.
 
----
+# Let's explore each of these **advanced overload resolution topics** step by step with hands-on examples and detailed reasoning.
 
 ## 1. 🎭 Implicit Conversions in Overload Resolution
 
@@ -357,7 +356,7 @@ int main() {
 ✅ No ambiguity — calls `fun(int)` directly  
 > Even though `fun(int, int)` could be called with default `y = 10`, it's a **less preferred** match when an exact overload exists.
 
----
+
 
 ### If you remove `fun(int)`:
 
@@ -368,7 +367,7 @@ void fun(int x, int y = 10);
 
 Then `fun(5)` resolves to that overload using the default value.
 
----
+
 
 ## 4. ⚡ `const`, `volatile`, and Rvalue Reference Overloads
 
@@ -417,9 +416,9 @@ Let’s deepen any one of these with:
 ---
 #### Integration with templates + SFINAE (`enable_if`, concepts)
 
-Alright, now we're stepping into 🔬 **Advanced Overload Control** using **Templates + SFINAE + Concepts** — powerful tools to **constrain overloads**, control instantiation, and write more robust, type-safe code.
+- Now we're stepping into 🔬 **Advanced Overload Control** using **Templates + SFINAE + Concepts** — powerful tools to **constrain overloads**, control instantiation, and write more robust, type-safe code.
 
----
+
 
 ## 🧠 1. What is SFINAE?
 
@@ -428,7 +427,7 @@ When template argument substitution fails, C++ **silently removes** that overloa
 
 > This enables conditional overloads based on type traits or constraints.
 
----
+
 
 ## ✨ Example 1: `enable_if` Based Overload
 
@@ -459,13 +458,10 @@ int main() {
 - `enable_if<true>::type` → yields `void`
 - `enable_if<false>::type` → **does not exist**, so that overload is ignored
 
----
-
 ## 🚀 Modern C++20: Concepts
 
 C++20 introduces **`concepts`**, a cleaner, more readable way to constrain templates.
 
----
 
 ## ✨ Example 2: Concepts-Based Overloading
 
@@ -495,8 +491,6 @@ int main() {
 
 ✅ Way cleaner and more readable than `enable_if`.
 
----
-
 ## 🧬 Example 3: Controlling Template Overload with `enable_if` on Return Type
 
 ```cpp
@@ -513,7 +507,6 @@ auto fun(T x) -> std::enable_if_t<std::is_floating_point_v<T>, float> {
 
 Used when you can't put `enable_if` in the parameter list directly.
 
----
 
 ## ⚔️ `enable_if` vs `concepts`
 
@@ -524,7 +517,6 @@ Used when you can't put `enable_if` in the parameter list directly.
 | Compile-time filtering     | ✅ Yes                          | ✅ Yes                      |
 | Requires C++ version       | C++11+                          | C++20+                      |
 
----
 
 ## 🔁 Practical Use: Type-Specific `print()`
 
@@ -548,14 +540,11 @@ print(100);     // Integral
 print(3.1415);  // Floating
 ```
 
----
-
 ## 🧪 Challenge for You
 
 Want me to create a small **SFINAE/Concept overload resolution puzzle** for you to solve interactively, or would you prefer to explore how **perfect forwarding** works with SFINAE/Concepts next?
 
-
-Awesome! Here's a hands-on **SFINAE + Concepts overload resolution puzzle** — let's test your intuition and help you **master it deeply**.
+Here's a hands-on **SFINAE + Concepts overload resolution puzzle** — let's test your intuition and help you **master it deeply**.
 
 ---
 
@@ -587,7 +576,6 @@ int main() {
 }
 ```
 
----
 
 ## ❓Your Task:
 
@@ -595,7 +583,7 @@ For each of the calls **(A) to (D)**, answer:
 1. **Which version is called?** (integral or floating-point)
 2. **Why?** (What's the underlying type trait resolution?)
 
----
+
 
 ## 🧠 Bonus: What if we used `concepts` like this?
 
@@ -702,7 +690,6 @@ void fun(Floating auto x) {
 
 So, in both cases — SFINAE and Concepts — the **answers remain the same**. Concepts just make the code **more readable** and the constraints **clearer**.
 
----
 
 ### Key Takeaways:
 
