@@ -619,4 +619,95 @@ Would your answers change?
 
 ---
 
-Take a crack at it! I’ll walk you through each one after your answers.
+I’ll walk you through each one after your answers.
+
+Alright, let’s walk through each of the function calls step by step, and I'll explain how overload resolution works with **SFINAE** and **Concepts**.
+
+### 🧠 Puzzle Walkthrough:
+
+#### (A) `fun(10);`  (Passing an `int`)
+
+1. **Which version is called?**
+   - **Integral version** (`std::enable_if_t<std::is_integral_v<T>>`)
+
+2. **Why?**
+   - The type of `10` is `int`, which is an **integral type**.  
+   - `std::is_integral_v<int>` evaluates to `true`, so the `enable_if` version for integral types is **enabled**.
+   - Therefore, the **integral version** of `fun(int)` gets called.
+
+---
+
+#### (B) `fun(3.14);`  (Passing a `double`)
+
+1. **Which version is called?**
+   - **Floating-point version** (`std::enable_if_t<std::is_floating_point_v<T>>`)
+
+2. **Why?**
+   - The type of `3.14` is `double`, which is a **floating-point type**.  
+   - `std::is_floating_point_v<double>` evaluates to `true`, so the `enable_if` version for floating-point types is **enabled**.
+   - Hence, the **floating-point version** of `fun(double)` gets called.
+
+---
+
+#### (C) `fun('c');`  (Passing a `char`)
+
+1. **Which version is called?**
+   - **Integral version** (`std::enable_if_t<std::is_integral_v<T>>`)
+
+2. **Why?**
+   - The type of `'c'` is `char`. In C++, `char` is considered an **integral type** (a small integer type).
+   - `std::is_integral_v<char>` evaluates to `true`, so the `enable_if` version for integral types is **enabled**.
+   - Therefore, the **integral version** of `fun(char)` gets called.
+
+---
+
+#### (D) `fun(true);`  (Passing a `bool`)
+
+1. **Which version is called?**
+   - **Integral version** (`std::enable_if_t<std::is_integral_v<T>>`)
+
+2. **Why?**
+   - The type of `true` is `bool`, which is technically an **integral type** in C++ (although it’s not usually thought of as a number).
+   - `std::is_integral_v<bool>` evaluates to `true`, so the `enable_if` version for integral types is **enabled**.
+   - Therefore, the **integral version** of `fun(bool)` gets called.
+
+---
+
+### 🧑‍💻 **Bonus Walkthrough with Concepts**
+
+If you used **C++20 Concepts**, the behavior is **essentially the same**, but with cleaner syntax:
+
+```cpp
+template<typename T>
+concept Integral = std::is_integral_v<T>;
+
+template<typename T>
+concept Floating = std::is_floating_point_v<T>;
+
+void fun(Integral auto x) {
+    std::cout << "Integral: " << x << std::endl;
+}
+
+void fun(Floating auto x) {
+    std::cout << "Floating: " << x << std::endl;
+}
+```
+
+#### What happens with `fun(10);`, `fun(3.14);`, etc.?
+
+1. **`fun(10);`** calls `fun(Integral auto x)` because `10` is an integral type (it matches the `Integral` concept).
+2. **`fun(3.14);`** calls `fun(Floating auto x)` because `3.14` is a floating-point number (it matches the `Floating` concept).
+3. **`fun('c');`** calls `fun(Integral auto x)` because `'c'` is a `char`, which is integral.
+4. **`fun(true);`** calls `fun(Integral auto x)` because `true` is a `bool`, which is integral.
+
+So, in both cases — SFINAE and Concepts — the **answers remain the same**. Concepts just make the code **more readable** and the constraints **clearer**.
+
+---
+
+### Key Takeaways:
+
+- **SFINAE** (via `enable_if`) allows us to conditionally enable overloads based on type traits.
+- **Concepts** (C++20) offer a cleaner way to define those constraints with more readable syntax.
+- Types like `char` and `bool` can be **considered integral** in C++ for these purposes, so overloads that work with integral types will also match `char` and `bool`.
+
+
