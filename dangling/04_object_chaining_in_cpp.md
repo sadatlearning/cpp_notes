@@ -47,14 +47,13 @@ int main() {
 ---
 
 ##  A full builder pattern example using object chaining in C++?
-
-Absolutely! Let’s first define **object chaining**, then show a hands-on **Builder Pattern** example using it in modern C++.
-
----
+  - Let’s first define **object chaining**, then show a hands-on **Builder Pattern** example using it in modern C++.
 
 ## 🔗 What is Object Chaining in C++?
 
-**Object chaining** (also called **method chaining**) is a programming style where multiple method calls are linked together in a single statement. This is typically done by having each method return a reference to the object itself (`*this`).
+**Object chaining** (also called **method chaining**) is a programming style where multiple method calls are linked together in a single statement.
+
+This is typically done by having each method return a reference to the object itself (`*this`).
 
 ### Example:
 
@@ -137,7 +136,7 @@ int main() {
 
 ---
 
-## a **version with inheritance** (e.g., Director class), or an example using **templates for chaining configuration across base classes**?
+## A **version with inheritance** (e.g., Director class), or an example using **templates for chaining configuration across base classes**?
 
 - Let’s take it a step further by showing a **Builder Pattern with inheritance**, where a `Director` class orchestrates the building process.
 - This setup is especially useful when you want to enforce consistent construction logic while still using **object chaining** for flexibility.
@@ -149,7 +148,6 @@ We’ll extend the previous example to include:
 * A `Person`
 * A `PersonBuilder` (for fluent chaining)
 * A `PersonDirector` (encapsulates building logic)
-
 
 ### ✅ Code
 
@@ -261,15 +259,14 @@ Name: Tom, Age: 16, Address: Unknown
 
 ---
 
-Would you like a **template-based generic builder** that works across multiple types, or a **thread-safe version** of this pattern?
+### Would you like a **template-based generic builder** that works across multiple types, or a **thread-safe version** of this pattern?
 
-Let's now build a **template-based generic builder** in C++ that works with multiple types using **CRTP (Curiously Recurring Template Pattern)**. 
-This enables reusable, type-safe object chaining across many builders.
+ - Let's now build a **template-based generic builder** in C++ that works with multiple types using **CRTP (Curiously Recurring Template Pattern)**. 
+   - This enables reusable, type-safe object chaining across many builders.
 
 ## 🏗️ Generic Builder with CRTP
 
-This allows defining a reusable base class for builders that return the derived type for chaining, and it avoids code duplication.
-
+   - This allows defining a reusable base class for builders that return the derived type for chaining, and it avoids code duplication.
 
 ### ✅ Full Code
 
@@ -356,5 +353,3 @@ Name: Charlie, Age: 40, Address: 123 CRTP Blvd
 ---
 
 Would you like to see a **thread-safe builder** using `std::mutex`, or a **builder that builds different object types** (e.g., Car, House) using the same CRTP base?
-
-
