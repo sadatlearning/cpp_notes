@@ -128,6 +128,110 @@ If you needed to add logic after initialization (like logging or validation), yo
 | `{}`                      | Empty constructor body                                             |
 
 
+Let's walk through this C++ program step by step, focusing on the **operator overloading** concept and how everything works.
+
+---
+
+## 🔍 What Does the Code Do?
+
+You're creating a simple class `Point` that stores 2D coordinates and **overloads the `+` operator** to allow you to add two `Point` objects together.
+
+## 🔧 Line-by-Line Explanation
+
+### 🔹 Class Definition
+
+```cpp
+class Point {
+  int x, y;
+```
+
+* Two private member variables `x` and `y` store the coordinates.
+
+### 🔹 Constructor
+
+```cpp
+Point(int a = 0, int b = 0) : x(a), y(b) {}
+```
+
+* This constructor uses an **initializer list** to initialize `x` and `y`.
+* You can create a point with custom coordinates or default (0,0).
+
+### 🔹 Operator Overloading
+
+```cpp
+Point operator+(const Point& p) {
+  return Point(x + p.x, y + p.y);
+}
+```
+
+This is where the magic of **operator overloading** happens:
+
+* You're **overloading the `+` operator** for the `Point` class.
+* It returns a **new `Point`** where:
+
+  * `x = this->x + p.x`
+  * `y = this->y + p.y`
+* Note: `p.x` and `p.y` are accessible because `p` is a `const Point&`.
+
+### 🔹 Display Method
+
+```cpp
+void display() { cout << "(" << x << "," << y << ")" << endl; }
+```
+
+Prints the `Point` in coordinate format.
+
+### 🔹 Main Function
+
+```cpp
+Point p1(1, 2), p2(3, 4);
+```
+
+* Creates two points:
+
+  * `p1`: (1, 2)
+  * `p2`: (3, 4)
+
+```cpp
+Point p3 = p1 + p2;
+```
+
+* Triggers the overloaded `+` operator
+* Internally calls:
+
+  ```cpp
+  Point operator+(const Point& p)
+  ```
+
+  with `this = p1` and `p = p2`, resulting in `(1+3, 2+4) = (4,6)`
+
+```cpp
+p3.display(); // Output: (4,6)
+```
+
+* Prints the result.
+
+## ✅ Output
+
+```
+(4,6)
+```
+
+## 📌 Visual Summary
+
+| Object | x | y |
+| ------ | - | - |
+| p1     | 1 | 2 |
+| p2     | 3 | 4 |
+| p3     | 4 | 6 |
+
+
+
+
+
+
+
+---
 ## ✅ Advanced Example
 
 ```cpp
