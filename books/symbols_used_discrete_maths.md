@@ -90,5 +90,3 @@
 | ∏      | Product              | Multiply sequence of terms | ∏ᵢ₌₁⁴ i = 1×2×3×4 = 24 |
 
 ---
-
-Would you like a **cheat sheet PDF** or printable version of these symbols for reference?
